@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombre Marca - Cuero & Metal</title>
+  <meta name="description" content="Accesorios artesanales en cuero y acero: diseño resistente, acabado premium y fabricación a mano. Envíos y contacto directo.">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="canonical" href="https://www.tu-dominio.com/">
+  <meta property="og:title" content="Nombre Marca - Cuero & Metal">
+  <meta property="og:description" content="Accesorios artesanales en cuero y acero: diseño resistente, acabado premium y fabricación a mano.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nombre Marca",
+    "url": "https://www.tu-dominio.com",
+    "logo": "https://www.tu-dominio.com/logo.png",
+    "sameAs": ["https://www.instagram.com/tu-cuenta"]
+  }
+  </script>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">Artesano</div>
+      <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false"></button>
+      <ul id="primary-navigation" class="nav-links" data-visible="false">
+        <li><a href="#about">Historia</a></li>
+        <li><a href="#collection">Colección</a></li>
+        <li><a href="#craft">Artesanía</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <h1>Accesorios hechos a mano</h1>
+      <p>Materiales reales. Construcción sólida.</p>
+      <a href="#collection" class="btn-primary">Explorar colección</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <section id="about" class="section dark">
+    <div class="container">
+      <h2>La Historia</h2>
+      <p>
+        Texto descriptivo de la historia
+      </p>
+    </div>
+  </section>
+
+  <section id="collection" class="section">
+    <div class="container">
+      <h2>La Colección</h2>
+      <div class="grid">
+        <div class="card">Categoría 1</div>
+        <div class="card">Categoría 2</div>
+        <div class="card">Categoría 3</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="craft" class="section dark textured">
+    <div class="container">
+      <h2>Artesanía & Materiales</h2>
+      <p>
+        Cuero genuino, remaches, tachas,
+        acero inoxidable, proceso manual, resistencia y durabilidad.
+      </p>
+    </div>
+  </section>
+
+
+  <footer id="contact" class="footer">
+    <div class="container">
+      <h3>Contacto</h3>
+      <p>Escríbenos para pedidos, colaboraciones o wholesale.</p>
+      <!-- Replace action with your Form endpoint (Formspree, Netlify Forms, etc.) -->
+      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn-primary">Enviar</button>
+      </form>
+
+      <p style="margin-top:1rem">O contacta por: <a href="mailto:contacto@marca.com">mateoetcheparedev@gmail.com</a></p>
+      <p class="copyright">© 2026 Nombre Marca</p>
+    </div>
+  </footer>
+
+  </main>
+
+  <script>
+  // Mobile nav toggle
+  (function(){
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-navigation');
+    btn.addEventListener('click', () => {
+      const visible = nav.getAttribute('data-visible') === 'true';
+      nav.setAttribute('data-visible', String(!visible));
+      btn.setAttribute('aria-expanded', String(!visible));
+    });
+    // Improve focus when skipping
+    const skip = document.querySelector('.skip-link');
+    skip.addEventListener('click', () => document.getElementById('main').focus());
+  })();
+  </script>
+
+</body>
+</html>

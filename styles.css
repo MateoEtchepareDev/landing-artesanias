@@ -1,0 +1,317 @@
+:root {
+  --black: #0d0d0d;
+  --dark: #1a1a1a;
+  --metal: #3a3a3a;
+  --steel: #6b6b6b;
+  --accent: #7a0000; /* rojo sangre oscuro */
+  --text: #e6e6e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cinzel', serif;
+  background-color: var(--black);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Uncial Antiqua', cursive;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HERO */
+
+.hero {
+  /* Use small viewport unit to avoid mobile address-bar issues */
+  min-height: 100svh;
+  background-image: linear-gradient(rgb(51, 0, 0), rgba(0,0,0,0.9));
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  gap: 1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.hero-content {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+  max-width: 900px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  margin-top: 1rem;
+  border: 0.2em solid rgb(51, 0, 0);
+  background: black;
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* SECTIONS */
+
+.section {
+  padding: 5rem 2rem;
+}
+
+.section.dark {
+  background-color: var(--dark);
+}
+
+.section.textured {
+  background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.95));
+  background-size: cover;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.card {
+  padding: 3rem 1rem;
+  background: var(--metal);
+  border: 2px solid var(--steel);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+/* CTA */
+
+.cta {
+  padding: 5rem 2rem;
+  background: var(--accent);
+  text-align: center;
+  color: #fff;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 3rem 2rem;
+  background: linear-gradient(rgba(36, 0, 0, 0.95), rgba(0,0,0,0.9), );
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer h3 {
+  margin-bottom: 1rem;
+}
+
+.copyright {
+  margin-top: 1rem;
+  color: #666;
+}
+
+/* Accessibility helpers */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  z-index: 9999;
+}
+
+/* Responsive nav */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0);
+  color: var(--text);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 1rem;
+    background: var(--dark);
+    border: 1px solid var(--steel);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+    transform-origin: top right;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
+  .nav-links[data-visible='true'] {
+    visibility: visible;
+    opacity: 1;
+  }
+  .nav-toggle { display: inline-block; }
+  .nav-links li { list-style: none; }
+}
+
+/* Hero tweaks */
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+.hero-content p { font-size: 1.1rem; }
+
+/* Buttons and focus states */
+.btn-primary, .btn-secondary {
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+.btn-primary:focus, .btn-secondary:focus,
+.nav-toggle:focus, a:focus, button:focus, input:focus, textarea:focus {
+  outline: 3px solid rgba(122,0,0,0.35);
+  outline-offset: 3px;
+}
+
+/* Contact form */
+.contact-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 700px;
+  margin: 1.5rem auto 0 auto;
+  text-align: left;
+}
+.contact-form label { font-weight: 700; font-size: 0.95rem; }
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem;
+  background: #250000;
+  border: 1px solid var(--steel);
+  color: var(--text);
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #2e2e2e; }
+
+/* Small layout improvements */
+.logo { letter-spacing: 1px; }
+.navbar { gap: 1rem; }
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .container { padding: 0 1.25rem; }
+  .hero { padding: 1.5rem; }
+  .hero-content { margin-bottom: 4rem; }
+  .grid { gap: 1.5rem; }
+}
+
+@media (max-width: 900px) {
+  .nav-links { right: 0.5rem; top: 64px; }
+  .logo { font-size: 1.25rem; }
+  .hero-content h1 { font-size: 2.2rem; }
+  .hero-content p { font-size: 1rem; }
+  .card { padding: 2rem 1rem; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .cta { padding: 3.5rem 1rem; }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    top: 56px;
+    right: 0.5rem;
+    left: 0.5rem;
+    border-radius: 6px;
+  }
+  .hero {
+    height: auto;
+    min-height: 60vh;
+    padding: 1rem;
+    justify-content: center;
+  }
+  .hero-content { margin-bottom: 2.5rem; }
+  .hero-content h1 { font-size: 1.8rem; }
+  .nav-toggle { font-size: 0.95rem; padding: 0.5rem 0.75rem; }
+  .nav-links[data-visible='true'] { padding: 1rem; }
+  .nav-links { position: fixed; left: 0.5rem; right: 0.5rem; }
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 1.25rem; }
+  .container { padding: 0 1rem; }
+  .btn-primary, .btn-secondary { width: 100%; display: block; text-align: center; }
+  .contact-form { width: 100%; padding: 0; }
+  .contact-form input, .contact-form textarea { width: 100%; box-sizing: border-box; }
+  .footer { padding: 2rem 1rem; }
+}
+
+/* High-density small devices */
+@media (max-width: 380px) {
+  .hero-content h1 { font-size: 1.6rem; }
+  .hero-content p { font-size: 0.95rem; }
+  .nav-toggle { padding: 0.45rem 0.6rem; }
+}
